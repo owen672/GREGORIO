@@ -211,15 +211,18 @@
     <div class="form-placeholder">
       <a href="CONVOCATORIA 9NA COPA TINTAL....pdf" download>
         <button>Descargar Convocatoria Oficial (PDF)</button>
+        
       </a>
     </div>
   </section>
-
 <section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
   <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">Código QR para Información Rápida</h2>
-    <div class="form-placeholder">
-      <img src="frame.png" alt="Código QR Copa Tintal" style="width: 250px; margin-top: 1rem;" />
-      <p style="margin-top: 1rem;">Escanea este código con tu celular para más información.</p>
+  <div class="form-placeholder">
+    <img src="codigo qr copa.png" alt="Código QR Copa Tintal" style="width: 260px; border-radius: 5px;">
+    <p style="margin-top: 1rem;">Escanea este código con tu celular para más información.</p>
+  </div>
+</section>
+
     </div>
   </section>
 <section id="galeria" style="padding: 20px; background-color: #292828;">
@@ -274,329 +277,23 @@
   <footer>
     <p>&copy; 2025 Copa Tintal Bogotá. Todos los derechos reservados.</p>
   </footer>
-</body>
-</html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copa Tintal - Compra de Fotos y Podios</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111212;
-      color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    #cart-button, #podium-button {
-      position: fixed;
-      bottom: 20px;
-      background-color: #F0B600;
-      color: #111;
-      border: none;
-      border-radius: 50%;
-      width: 65px;
-      height: 65px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      z-index: 10000;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
-
-    #cart-button:hover, #podium-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-    }
-
-    #cart-button {
-      right: 20px;
-    }
-
-    #podium-button {
-      right: 100px;
-      background: radial-gradient(circle at top left, #FFD700, #F0B600);
-      box-shadow: 0 0 15px #FFD700;
-    }
-
-    #cart-count {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background-color: red;
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      width: 22px;
-      height: 22px;
-      text-align: center;
-      line-height: 22px;
-      border-radius: 50%;
-      box-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-
-    #cart-panel, #podium-panel {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      width: 350px;
-      max-height: 80vh;
-      overflow-y: auto;
-      background-color: #1b1b1b;
-      color: #f4f4f4;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      display: none;
-      z-index: 10000;
-    }
-
-    #podium-panel {
-      right: 100px;
-    }
-
-    .patinadora, .podium {
-      background-color: #2c2c2c;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    #search {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      border: none;
-    }
-
-    .admin {
-      display: none;
-      background: #222;
-      color: white;
-      padding: 15px;
-      margin: 20px;
-      border-radius: 10px;
-    }
-
-    .admin textarea {
-      width: 100%;
-      height: 100px;
-      background: #111;
-      color: #f4f4f4;
-      border: 1px solid #444;
-      border-radius: 5px;
-      padding: 10px;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
-<button id="cart-button" onclick="toggleCart()">
-  🛒
-  <span id="cart-count" style="display: none;">0</span>
-</button>
-<button id="podium-button" onclick="togglePodium()">
-  🏆
-</button>
-<div id="cart-panel">
-  <input type="text" id="search" placeholder="Buscar patinadora..." onkeyup="filterPatinadoras()">
-  <div id="patinadoras-list"></div>
-  <hr>
-  <h4>🛒 Carrito</h4>
-  <ul id="cart" style="list-style: none; padding-left: 0;"></ul>
-  <button onclick="checkout()" style="background-color: #04b500; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px;">Pagar</button>
-  <p style="font-size: 12px; margin-top: 10px;">💳 Cuenta Bancolombia: <strong>12345678901</strong><br>También puedes pagar por PSE</p>
-</div>
-<div id="podium-panel">
-  <h3>Podios en Tiempo Real</h3>
-  <div id="podios-list"></div>
-</div>
-<div class="admin" id="admin-section">
-  <h3>Administración</h3>
-  <input type="file" webkitdirectory directory multiple>
-  <button onclick="alert('Nombres editables solo en backend real')">Editar nombres</button>
-  <h4>Editar Podios</h4>
-  <textarea id="podios-json" placeholder='Ejemplo: [{"prueba": "100m", "puestos": ["Uno", "Dos", "Tres"]}]'></textarea>
-  <button onclick="actualizarPodiosDesdeTexto()">Actualizar Podios</button>
-  <h4>Exportar/Importar Carrito</h4>
-  <textarea id="cart-json" placeholder='Exporta o pega JSON del carrito aquí'></textarea>
-  <button onclick="importarCarrito()">Importar Carrito</button>
-</div>
+<!-- 🔐 SCRIPT para edición con Enter -->
 <script>
-  let cart = [];
-
-  let podios = JSON.parse(localStorage.getItem("podios")) || [
-    { prueba: 'Velocidad 100m', puestos: ['Patinadora 12', 'Patinadora 7', 'Patinadora 21'] },
-    { prueba: 'Fondo 1500m', puestos: ['Patinadora 5', 'Patinadora 33', 'Patinadora 88'] },
-    { prueba: 'Relevos', puestos: ['Equipo A', 'Equipo B', 'Equipo C'] },
-  ];
-
-  const patinadoras = Array.from({ length: 300 }, (_, i) => ({
-    nombre: `Patinadora ${i + 1}`,
-    imagen: `foto${i + 1}.jpg`
-  }));
-
-  function toggleCart() {
-    document.getElementById("cart-panel").style.display =
-      document.getElementById("cart-panel").style.display === "none" ? "block" : "none";
-  }
-
-  function togglePodium() {
-    document.getElementById("podium-panel").style.display =
-      document.getElementById("podium-panel").style.display === "none" ? "block" : "none";
-  }
-
-  function updateCartCount(count) {
-    const badge = document.getElementById("cart-count");
-    if (count > 0) {
-      badge.textContent = count;
-      badge.style.display = "inline-block";
-    } else {
-      badge.style.display = "none";
-    }
-  }
-
-  function renderPatinadoras() {
-    const lista = document.getElementById("patinadoras-list");
-    lista.innerHTML = "";
-    patinadoras.forEach((p, index) => {
-      const div = document.createElement("div");
-      div.className = "patinadora";
-      div.innerHTML = `
-        <p>${p.nombre}</p>
-        <select id="color-${index}">
-          <option>Original</option>
-          <option>Blanco y Negro</option>
-          <option>Vintage</option>
-        </select>
-        <button onclick="addToCart('${p.nombre}', 'color-${index}', '${p.imagen}')">Agregar</button>
-      `;
-      lista.appendChild(div);
-    });
-  }
-
-  function filterPatinadoras() {
-    const input = document.getElementById("search").value.toLowerCase();
-    const lista = document.getElementById("patinadoras-list");
-    lista.innerHTML = "";
-    patinadoras.filter(p => p.nombre.toLowerCase().includes(input))
-      .forEach((p, index) => {
-        const div = document.createElement("div");
-        div.className = "patinadora";
-        div.innerHTML = `
-          <p>${p.nombre}</p>
-          <select id="color-${index}">
-            <option>Original</option>
-            <option>Blanco y Negro</option>
-            <option>Vintage</option>
-          </select>
-          <button onclick="addToCart('${p.nombre}', 'color-${index}', '${p.imagen}')">Agregar</button>
-        `;
-        lista.appendChild(div);
-      });
-  }
-
-  function renderPodios() {
-    const contenedor = document.getElementById("podios-list");
-    contenedor.innerHTML = "";
-    podios.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "podium";
-      div.innerHTML = `
-        <h4>${p.prueba}</h4>
-        <ol>
-          <li>🥇 ${p.puestos[0]}</li>
-          <li>🥈 ${p.puestos[1]}</li>
-          <li>🥉 ${p.puestos[2]}</li>
-        </ol>
-      `;
-      contenedor.appendChild(div);
-    });
-  }
-
-  function actualizarPodiosDesdeTexto() {
-    try {
-      const nuevoTexto = document.getElementById("podios-json").value;
-      const nuevos = JSON.parse(nuevoTexto);
-      podios = nuevos;
-      localStorage.setItem("podios", JSON.stringify(podios));
-      renderPodios();
-      alert("✅ Podios actualizados correctamente");
-    } catch (e) {
-      alert("❌ Error en el formato JSON");
-    }
-  }
-
-  function addToCart(name, colorId, image) {
-    const color = document.getElementById(colorId).value;
-    cart.push({ name, color, image });
-    renderCart();
-    updateCartCount(cart.length);
-  }
-
-  function renderCart() {
-    const cartList = document.getElementById("cart");
-    cartList.innerHTML = "";
-    cart.forEach((item, index) => {
-      cartList.innerHTML += `<li>${item.name} - ${item.color} <button onclick="removeItem(${index})">❌</button></li>`;
-    });
-  }
-
-  function removeItem(index) {
-    cart.splice(index, 1);
-    renderCart();
-    updateCartCount(cart.length);
-  }
-
-  function checkout() {
-    if (cart.length === 0) {
-      alert("Tu carrito está vacío.");
-      return;
-    }
-    alert("Simulando pago PSE/Bancolombia... Descargando fotos.");
-    cart.forEach(item => {
-      const link = document.createElement('a');
-      link.href = item.image;
-      link.download = item.name + ".jpg";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-    cart = [];
-    renderCart();
-    updateCartCount(0);
-  }
-
-  function importarCarrito() {
-    try {
-      const input = document.getElementById("cart-json").value;
-      cart = JSON.parse(input);
-      renderCart();
-      updateCartCount(cart.length);
-      alert("✅ Carrito importado correctamente");
-    } catch (e) {
-      alert("❌ Error en el formato del carrito");
-    }
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      const pass = prompt("Ingrese la contraseña de administrador:");
-      if (pass === "copatintal2025") {
-        document.getElementById("admin-section").style.display = "block";
-        alert("Bienvenido administrador.");
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      const pass = prompt('Ingrese la contraseña para editar:');
+      if (pass === 'copatintal2025') {
+        document.querySelectorAll('section, header, footer, h1, h2, p, ul, li').forEach(el => {
+          el.contentEditable = true;
+          el.style.outline = "2px dashed #F0B600";
+        });
+        alert('Edición activada. Puedes modificar los textos directamente en la página.');
       } else {
-        alert("Contraseña incorrecta.");
+        alert('Contraseña incorrecta.');
       }
     }
   });
-
-  renderPatinadoras();
-  renderPodios();
 </script>
+
 </body>
 </html>
