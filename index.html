@@ -215,25 +215,82 @@
       </a>
     </div>
   </section>
-<section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
-  <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">Código QR para Información Rápida</h2>
-  <div class="form-placeholder">
-    <img src="codigo qr copa.png" alt="Código QR Copa Tintal" style="width: 260px; border-radius: 5px;">
-    <p style="margin-top: 1rem;">Escanea este código con tu celular para más información.</p>
-  </div>
-</section>
 
+   <section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">Descarga tu consentimiento informado</h2>
+    <div class="form-placeholder">
+      <a href="Consentimiento_Copa_Tintal_2025.xlsx" download>
+        <button>Descargar Tu Consentimiento Informado(EXCEL)</button>
+        </a>
+    </div>
+        
+<section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">Escanea este Codigo QR para subir la planilla y consentimiento informado</h2>
+    <div class="form-placeholder">
+      <img src="codigo qr copa.png" alt="Foto 1" style="width: 260px; border-radius: 5px;">
+      <p style="margin-top: 1rem;">Escanea este código con tu celular para más información.</p>
     </div>
   </section>
+   </a>
+    </div>
+     <section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">archivos para la inscripcion</h2>
+    <div class="form-placeholder">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgRxJholEIXxPZaHfYtl12Al5YCPDzNEJ9lJTqq64zOOaMgw/viewform?usp=dialog" download>
+        <button>subir archivos de inscripcion(PDF)</button>
+        
+      </a>
+    </div>
+
 <section id="galeria" style="padding: 20px; background-color: #292828;">
   <h2 style="text-align: center;">Galería de Fotos y Videos</h2>
 
-  <!-- FOTOS -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;">
-    <img src="Captura 1.PNG" alt="Foto 1" style="width: 260px; border-radius: 5px;">
-    <img src="Captura 2.PNG" alt="Foto 2" style="width: 260px; border-radius: 5px;">
-    <img src="Captura 3.PNG" alt="Foto 3" style="width: 260px; border-radius: 5px;">
+<!-- CARRUSEL DE FOTOS AUTOMÁTICO -->
+<h2 style="text-align: center; color: #F0B600; font-family: Arial, sans-serif;">Galería de Fotos</h2>
+
+<div style="overflow: hidden; width: 100%; max-width: 100%; margin: 0 auto;">
+  <div class="carrusel-fotos">
+    <img src="Captura 1.PNG" alt="Foto 1" class="foto-carrusel">
+    <img src="Captura 2.PNG" alt="Foto 2" class="foto-carrusel">
+    <img src="Captura 3.PNG" alt="Foto 3" class="foto-carrusel">
+    <img src="Captura 4.PNG" alt="Foto 4" class="foto-carrusel">
+    <img src="Captura 5.PNG" alt="Foto 5" class="foto-carrusel">
+    <img src="Captura 6.PNG" alt="Foto 6" class="foto-carrusel">
+    <img src="Captura 7.PNG" alt="Foto 7" class="foto-carrusel">
+    <img src="Captura 8.PNG" alt="Foto 8" class="foto-carrusel">
+    <!-- Puedes duplicar imágenes para hacer el loop más fluido -->
+    <img src="Captura 1.PNG" alt="Foto 1" class="foto-carrusel">
+    <img src="Captura 2.PNG" alt="Foto 2" class="foto-carrusel">
   </div>
+</div>
+
+<style>
+  .carrusel-fotos {
+    display: flex;
+    gap: 15px;
+    animation: moverCarrusel 40s linear infinite;
+    padding: 10px;
+  }
+
+  .foto-carrusel {
+    width: 260px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  @keyframes moverCarrusel {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+</script>
+
 
   <!-- VIDEOS -->
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
