@@ -228,11 +228,15 @@
   <h2 style="font-size: 24px; margin-bottom: 15px; color: #F0B600;">
     Escanea este Código QR para subir la planilla y consentimiento informado
   </h2>
-  <div class="form-placeholder">
-    <img src="codigo qr copa.png" alt="Código QR Copa Tintal" style="width: 260px; border-radius: 5px; display: block; margin: 0 auto;">
-    <p style="margin-top: 1rem;">Escanea este código con tu celular para más información.</p>
+  <div style="display: flex; justify-content: center;">
+    <img src="codigo qr copa.png" alt="Código QR" style="max-width: 260px; width: 100%; border-radius: 5px;">
   </div>
+  <p style="margin-top: 1rem;">
+    Escanea este código con tu celular para más información.
+  </p>
 </section>
+</a>
+    </div>
      <section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
   <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">archivos para la inscripcion</h2>
     <div class="form-placeholder">
@@ -245,51 +249,52 @@
 <section id="galeria" style="padding: 20px; background-color: #292828;">
   <h2 style="text-align: center;">Galería de Fotos y Videos</h2>
 
-<!-- CARRUSEL DE FOTOS AUTOMÁTICO -->
-<h2 style="text-align: center; color: #F0B600; font-family: Arial, sans-serif;">Galería de Fotos</h2>
-
-<div style="overflow: hidden; width: 100%; max-width: 100%; margin: 0 auto;">
-  <div class="carrusel-fotos">
-    <img src="Captura 1.PNG" alt="Foto 1" class="foto-carrusel">
-    <img src="Captura 2.PNG" alt="Foto 2" class="foto-carrusel">
-    <img src="Captura 3.PNG" alt="Foto 3" class="foto-carrusel">
-    <img src="Captura 4.PNG" alt="Foto 4" class="foto-carrusel">
-    <img src="Captura 5.PNG" alt="Foto 5" class="foto-carrusel">
-    <img src="Captura 6.PNG" alt="Foto 6" class="foto-carrusel">
-    <img src="Captura 7.PNG" alt="Foto 7" class="foto-carrusel">
-    <img src="Captura 8.PNG" alt="Foto 8" class="foto-carrusel">
-    <!-- Puedes duplicar imágenes para hacer el loop más fluido -->
-    <img src="Captura 1.PNG" alt="Foto 1" class="foto-carrusel">
-    <img src="Captura 2.PNG" alt="Foto 2" class="foto-carrusel">
-  </div>
-</div>
-
 <style>
-  .carrusel-fotos {
-    display: flex;
-    gap: 15px;
-    animation: moverCarrusel 5s linear infinite; /* velocidad aumentada */
-    padding: 10px;
+  .carrusel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: #111212;
+    padding: 20px 0;
   }
 
-  .foto-carrusel {
+  .carrusel {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    width: fit-content;
+  }
+
+  .carrusel img {
     width: 260px;
     height: 180px;
     object-fit: cover;
+    margin-right: 15px;
     border-radius: 8px;
-    flex-shrink: 0;
   }
 
-  @keyframes moverCarrusel {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 </style>
 
+<div class="carrusel-wrapper">
+  <div class="carrusel" id="carrusel">
+    <img src="Captura 1.PNG" alt="1">
+    <img src="Captura 2.PNG" alt="2">
+    <img src="Captura 3.PNG" alt="3">
+    <img src="Captura 4.PNG" alt="4">
+    <img src="Captura 5.PNG" alt="5">
+    <img src="Captura 6.PNG" alt="6">
+    <img src="Captura 7.PNG" alt="7">
+    <img src="Captura 8.PNG" alt="8">
+  </div>
+</div>
+
+<script>
+  // Duplica las imágenes automáticamente para evitar cortes
+  const carrusel = document.getElementById('carrusel');
+  carrusel.innerHTML += carrusel.innerHTML;
+</script>
 
 
   <!-- VIDEOS -->
