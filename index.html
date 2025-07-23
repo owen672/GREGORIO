@@ -219,7 +219,7 @@
    <section style="font-family: Arial, sans-serif; background-color: #111212; color: #f4f4f4; padding: 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
   <h2 style="font-size: 24px; margin-bottom: 15px; text-align: center; color: #F0B600;">Descarga tu consentimiento informado</h2>
     <div class="form-placeholder">
-      <a href="Consentimiento_Copa_Tintal_2025.xlsx" download>
+      <a href="Consentimiento_Copa_Tintal_2025_FINAL_Arial10 (1).xlsx" download>
         <button>Descargar Tu Consentimiento Informado(EXCEL)</button>
         </a>
     </div>
@@ -247,56 +247,130 @@
     </div>
 
 <section id="galeria" style="padding: 20px; background-color: #292828;">
-  <h2 style="text-align: center;">Galería de Fotos y Videos</h2>
+  <h2 style="text-align: center; color: #F0B600;">Galería de Fotos y Videos</h2>
 
-<style>
-  .carrusel-wrapper {
-    overflow: hidden;
-    width: 100%;
-    background: #111212;
-    padding: 20px 0;
-  }
+  <style>
+    .carrusel-wrapper {
+      overflow: hidden;
+      width: 100%;
+      background: #111212;
+      padding: 20px 0;
+    }
 
-  .carrusel {
-    display: flex;
-    animation: scroll 20s linear infinite;
-    width: fit-content;
-  }
+    .carrusel {
+      display: flex;
+      animation: scroll 20s linear infinite;
+      width: fit-content;
+    }
 
-  .carrusel img {
-    width: 260px;
-    height: 180px;
-    object-fit: cover;
-    margin-right: 15px;
-    border-radius: 8px;
-  }
+    .carrusel img {
+      width: 260px;
+      height: 180px;
+      object-fit: cover;
+      margin-right: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-</style>
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
 
-<div class="carrusel-wrapper">
-  <div class="carrusel" id="carrusel">
-    <img src="Captura 1.PNG" alt="1">
-    <img src="Captura 2.PNG" alt="2">
-    <img src="Captura 3.PNG" alt="3">
-    <img src="Captura 4.PNG" alt="4">
-    <img src="Captura 5.PNG" alt="5">
-    <img src="Captura 6.PNG" alt="6">
-    <img src="Captura 7.PNG" alt="7">
-    <img src="Captura 8.PNG" alt="8">
-    <img src="Captura 9.PNG" alt="8">
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Estilo del modal */
+    #modalImagen {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modalImagen img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    #cerrarModal {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+  </style>
+
+  <!-- CARRUSEL DE IMÁGENES -->
+  <div class="carrusel-wrapper">
+    <div class="carrusel" id="carrusel">
+      <img src="Captura 1.PNG" alt="1">
+      <img src="Captura 2.PNG" alt="2">
+      <img src="Captura 3.PNG" alt="3">
+      <img src="Captura 4.PNG" alt="4">
+      <img src="Captura 5.PNG" alt="5">
+      <img src="Captura 6.PNG" alt="6">
+      <img src="Captura 7.PNG" alt="7">
+      <img src="Captura 8.PNG" alt="8">
+      <img src="Captura 9.PNG" alt="9">
+    </div>
   </div>
-</div>
 
-<script>
-  // Duplica las imágenes automáticamente para evitar cortes
-  const carrusel = document.getElementById('carrusel');
-  carrusel.innerHTML += carrusel.innerHTML;
-</script>
+  <!-- MODAL PARA IMAGEN EN PANTALLA COMPLETA -->
+  <div id="modalImagen">
+    <span id="cerrarModal">&times;</span>
+    <img id="imagenAmpliada" src="" alt="Imagen ampliada">
+  </div>
 
+  <script>
+    // Duplicar carrusel para scroll continuo
+    const carrusel = document.getElementById('carrusel');
+    carrusel.innerHTML += carrusel.innerHTML;
+
+    // Pantalla completa
+    const modal = document.getElementById("modalImagen");
+    const imagenAmpliada = document.getElementById("imagenAmpliada");
+    const cerrarModal = document.getElementById("cerrarModal");
+
+    document.querySelectorAll('.carrusel img').forEach(img => {
+      img.addEventListener('click', () => {
+        imagenAmpliada.src = img.src;
+        modal.style.display = "flex";
+      });
+    });
+
+    cerrarModal.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+  </script>
+
+  <!-- VIDEOS -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px;">
+    <video width="320" height="240" controls>
+      <source src="pppp.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <video width="320" height="240" controls>
+      <source src="expectativa-2-copa-tintal-9na-edicion_pR7YEd5d.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+  </div>
+</section>
 
   <!-- VIDEOS -->
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
